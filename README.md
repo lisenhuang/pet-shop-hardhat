@@ -1,31 +1,34 @@
 # Hardhat Pet Shop
 
-Hardhat reimplementation of the classic [Truffle Pet Shop](https://archive.trufflesuite.com/guides/pet-shop/) tutorial. It ships with the same Solidity Adoption contract, a Hardhat toolbox workspace, automated tests, and a lightweight vanilla JavaScript front-end that talks to the deployed contract through `ethers.js`.
+> 🌟 Please hit **Star** if this repo helps you—thank you for the support!
+>
+> 🪄 Tip: Fork the project into your own GitHub account so you can customize the code freely and send pull requests back here when you add improvements.
 
-> All UI strings, comments, and documentation are written in English as requested.
+Hardhat reimplementation of the classic [Truffle Pet Shop](https://archive.trufflesuite.com/guides/pet-shop/) tutorial. It ships with the same Solidity Adoption contract, a Hardhat toolbox workspace, automated tests, and a lightweight vanilla JavaScript front-end driven by `ethers.js`.
 
-## Requirements
+## ✅ Requirements
 
 - Node.js 18+ and npm
 - MetaMask (or any browser wallet that injects `window.ethereum`)
 - macOS/Linux/Windows shell with git
 
-## Installation
+## ⚙️ Installation
 
 ```bash
-git clone <repo-url>
+# Fork the repo, then clone your fork
+git clone https://github.com/<your-username>/pet-shop-hardhat
 cd pet-shop-hardhat
 npm install
-cp .env.example .env   # only needed if you plan to use Sepolia / Etherscan
+cp .env.example .env   # optional – needed only when deploying to Sepolia / verifying on Etherscan
 ```
 
-## Contract Workflow
+## 🧱 Contract Workflow
 
 1. **Compile**
    ```bash
    npm run build
    ```
-2. **Run the test suite**
+2. **Run the tests**
    ```bash
    npm test
    ```
@@ -33,60 +36,76 @@ cp .env.example .env   # only needed if you plan to use Sepolia / Etherscan
    ```bash
    npm run node
    ```
-   Leave this terminal open; it exposes `http://127.0.0.1:8545` with 20 funded accounts (the private keys are printed in the console).
+   Leave this terminal open; it exposes `http://127.0.0.1:8545` with 20 funded accounts (private keys printed in the console).
 4. **Deploy the Adoption contract to the local node**
    ```bash
    npm run deploy:localhost
    ```
-   This script also exports `frontend/Adoption.json` (ABI) and `frontend/contract-address.json`, which the UI consumes.
+   The script also exports `frontend/Adoption.json` (ABI) and `frontend/contract-address.json`, which the UI consumes.
 
-## Front-end Workflow
+## 🖥️ Front-end Workflow
 
-1. (Ensure the local Hardhat node is still running and the contract has been deployed.)
+1. Make sure the Hardhat node is still running and the contract is deployed.
 2. In a new terminal:
    ```bash
    npm run dev:frontend
    ```
-3. Navigate to `http://localhost:3000`.
-4. Click **Connect Wallet**. MetaMask must point at **http://127.0.0.1:8545**, chain ID **1337**, currency symbol **ETH**. Import one of the private keys printed by `npm run node` to adopt a pet.
+3. Open `http://localhost:3000`.
+4. Click **Connect Wallet**. MetaMask must point at **http://127.0.0.1:8545**, chain ID **1337**, currency symbol **ETH**. Import one of the keys printed by `npm run node`, then adopt a pet.
 
 Whenever you redeploy the contract, refresh the browser so the UI picks up the new address/ABI.
 
-## Deploying Elsewhere
+## 🚀 Deploying Elsewhere (optional)
 
-Edit `.env` with `SEPOLIA_RPC_URL`, `PRIVATE_KEY`, and `ETHERSCAN_API_KEY`, then run:
+Set `SEPOLIA_RPC_URL`, `PRIVATE_KEY`, and `ETHERSCAN_API_KEY` inside `.env`, then run:
 
 ```bash
 npm run deploy:hardhat          # deploys to the in-process Hardhat network
-hardhat run scripts/deploy.js --network sepolia
+npx hardhat run scripts/deploy.js --network sepolia
 ```
 
-Remember to copy the generated `frontend/*.json` files if you plan to host the UI.
+Copy the newly generated `frontend/*.json` files if you plan to host the UI.
 
-## Project Structure
+## 🗂️ Project Structure
 
+```text
+pet-shop-hardhat
+├── contracts
+│   └── Adoption.sol
+├── scripts
+│   └── deploy.js
+├── test
+│   └── Adoption.js
+├── frontend
+│   ├── app.js
+│   ├── index.html
+│   ├── style.css
+│   ├── pets.json
+│   ├── Adoption.json
+│   ├── contract-address.json
+│   └── images
+│       ├── boxer.jpeg
+│       ├── french-bulldog.jpeg
+│       ├── golden-retriever.jpeg
+│       └── scottish-terrier.jpeg
+└── hardhat.config.js
 ```
-contracts/Adoption.sol          # Solidity contract
-scripts/deploy.js               # Deployment + frontend artifact export
-test/Adoption.js                # Hardhat test suite
-frontend/                       # Vanilla UI served by lite-server
-```
 
-## Available npm Scripts
+## 📜 Available npm Scripts
 
-| Script             | Description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `npm run build`    | Compile contracts                                      |
-| `npm test`         | Run Hardhat tests                                      |
-| `npm run node`     | Launch Hardhat Network at `127.0.0.1:8545`             |
+| Script                     | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `npm run build`            | Compile contracts                                  |
+| `npm test`                 | Run Hardhat tests                                  |
+| `npm run node`             | Launch Hardhat Network at `127.0.0.1:8545`         |
 | `npm run deploy:localhost` | Deploy to the local node and export frontend files |
 | `npm run deploy:hardhat`   | Deploy to the built-in ephemeral Hardhat network   |
-| `npm run dev:frontend`     | Serve the UI with `lite-server`                 |
+| `npm run dev:frontend`     | Serve the UI with `lite-server`                    |
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 - **`contract-address.json` missing** – run `npm run build` then `npm run deploy:localhost` again.
 - **MetaMask shows the wrong network** – open MetaMask → Networks → Add Network → `HTTP RPC URL: http://127.0.0.1:8545`, `Chain ID: 1337`, `Currency Symbol: ETH`.
-- **Transactions fail instantly** – ensure the Hardhat node window is still running; restarting it resets the chain, so redeploy the contract afterward.
+- **Transactions fail instantly** – ensure the Hardhat node window is still running; restarting it resets the chain, so redeploy afterward.
 
-Enjoy adopting pets the Hardhat way!
+Enjoy adopting pets the Hardhat way! 🐾
