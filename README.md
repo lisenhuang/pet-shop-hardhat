@@ -109,3 +109,6 @@ pet-shop-hardhat
 - **Transactions fail instantly** – ensure the Hardhat node window is still running; restarting it resets the chain, so redeploy afterward.
 
 Enjoy adopting pets the Hardhat way! 🐾
+
+![Successful pet shop UI screenshot](frontend/images/pet-shop.jpg)
+<sub>Screenshot of the app after a successful local deployment and adoption flow.</sub>
