@@ -48,7 +48,7 @@ cp .env.example .env   # only needed if you plan to use Sepolia / Etherscan
    npm run dev:frontend
    ```
 3. Navigate to `http://localhost:3000`.
-4. Click **Connect Wallet**. MetaMask must point at **http://127.0.0.1:8545**, chain ID **31337**. Import one of the private keys printed by `npm run node` to adopt a pet.
+4. Click **Connect Wallet**. MetaMask must point at **http://127.0.0.1:8545**, chain ID **1337**, currency symbol **ETH**. Import one of the private keys printed by `npm run node` to adopt a pet.
 
 Whenever you redeploy the contract, refresh the browser so the UI picks up the new address/ABI.
 
@@ -86,7 +86,7 @@ frontend/                       # Vanilla UI served by lite-server
 ## Troubleshooting
 
 - **`contract-address.json` missing** – run `npm run build` then `npm run deploy:localhost` again.
-- **MetaMask shows the wrong network** – open MetaMask → Networks → Add Network → `HTTP RPC URL: http://127.0.0.1:8545`, `Chain ID: 31337`.
+- **MetaMask shows the wrong network** – open MetaMask → Networks → Add Network → `HTTP RPC URL: http://127.0.0.1:8545`, `Chain ID: 1337`, `Currency Symbol: ETH`.
 - **Transactions fail instantly** – ensure the Hardhat node window is still running; restarting it resets the chain, so redeploy the contract afterward.
 
 Enjoy adopting pets the Hardhat way!
