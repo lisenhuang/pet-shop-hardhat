@@ -1,0 +1,144 @@
+:root {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #eef2ff, #f8fafc 50%);
+  color: inherit;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #6366f1;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.primary {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.25);
+}
+
+.status-banner {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 0.85rem clamp(1.5rem, 5vw, 4rem);
+  font-weight: 500;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem clamp(1.5rem, 5vw, 4rem) 3rem;
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.pet-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.pet-copy {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.pet-name {
+  margin: 0 0 0.5rem;
+}
+
+.pet-meta,
+.pet-location {
+  margin: 0.25rem 0;
+  color: #475569;
+}
+
+.adopt-button {
+  margin: 0 1.25rem 1.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.9rem;
+  border: none;
+  font-weight: 600;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.adopt-button:disabled {
+  background: #cbd5f5;
+  color: #475569;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.adopt-button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.pet-card.adopted .adopt-button {
+  background: #16a34a;
+  cursor: not-allowed;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #475569;
+  font-size: 0.9rem;
+}

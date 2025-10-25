@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hardhat Pet Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Truffle Pet Shop rebuilt with Hardhat</p>
+        <h1>Adopt a pet on your local blockchain</h1>
+        <p>
+          Start a Hardhat node, deploy the Adoption contract, then connect MetaMask to the localhost
+          network to adopt one of the pets below.
+        </p>
+      </div>
+      <button id="connectWallet" class="primary">Connect Wallet</button>
+    </header>
+
+    <section id="status" class="status-banner">Loading pets...</section>
+
+    <main id="petGrid" class="pet-grid" aria-live="polite"></main>
+
+    <template id="pet-card-template">
+      <article class="pet-card">
+        <img alt="" class="pet-photo" />
+        <div class="pet-copy">
+          <h2 class="pet-name"></h2>
+          <p class="pet-meta"></p>
+          <p class="pet-location"></p>
+        </div>
+        <button class="adopt-button" data-pet-id="" disabled>Connect wallet to adopt</button>
+      </article>
+    </template>
+
+    <footer class="footer">
+      Built with Hardhat, ethers, and vanilla JavaScript.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.1/dist/ethers.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

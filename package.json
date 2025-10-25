@@ -1,0 +1,25 @@
+{
+  "name": "pet-shop-hardhat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:hardhat": "hardhat run scripts/deploy.js",
+    "dev:frontend": "lite-server --baseDir=frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "Pet Shop tutorial dapp rebuilt with Hardhat, ethers, and a vanilla frontend.",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.26.1",
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
