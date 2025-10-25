@@ -102,6 +102,8 @@ pet-shop-hardhat
 | `npm run deploy:hardhat`   | Deploy to the built-in ephemeral Hardhat network   |
 | `npm run dev:frontend`     | Serve the UI with `lite-server`                    |
 
+Click [`package.json`](package.json#L6) to inspect the `scripts` field and see the raw shell commands behind these tasks.
+
 ## 🛠️ Troubleshooting
 
 - **`contract-address.json` missing** – run `npm run build` then `npm run deploy:localhost` again.
